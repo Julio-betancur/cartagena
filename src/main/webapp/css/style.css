@@ -1,0 +1,44 @@
+:root{
+    --primary: #546e7a;
+    --dark:#486370;
+    --light: #ffffff;
+    }
+
+    body{
+        font-family: 'Spartan', sans-serif;
+        font-weight: 300;
+        
+        background: var(--primary);
+    }
+
+    
+   .rigth{
+       background: var(--dark);
+   }
+
+   .valid-feedback{
+       color: rgb(255, 255, 255);
+   }
+
+   .invalid-feedback{
+    color: rgb(255, 255, 255);
+   }
+
+   .btn-secondary{
+       background: #CFDAE6;
+       color: var(--dark);
+   }
+
+   .btn-secondary:hover{
+       background: #a9b4be;
+       color: var(--dark);
+   }
+
+   .form-control{
+    color: black;
+}
+
+h1,p{
+    color: var(--light);
+}
+
