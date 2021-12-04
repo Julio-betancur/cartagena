@@ -4,3 +4,5 @@ web\ControladorLogin.class
 datos\UsuarioDAO.class
 datos\Conexion.class
 web\ControladorAdministrador.class
+dominio\Municipio.class
+datos\MunicipiosDAO.class

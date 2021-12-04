@@ -33,6 +33,8 @@
         <h2>Fecha de registro: ${usuario.fechaRegistro}</h2>
         
         <a href="${pageContext.request.contextPath}/CerrarSesion" class="btn btn-secondary">Cerrar Sesion</a>
+        
+        <a href="${pageContext.request.contextPath}/registro.html" class="btn btn-secondary">Registro usuario</a>
 
 
 

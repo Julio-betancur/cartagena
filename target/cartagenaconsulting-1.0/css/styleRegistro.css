@@ -1,0 +1,34 @@
+:root{
+    --primary: #546e7a; 
+    --dark:#486370;
+    --light: #ffffff;
+    }
+
+    body{
+        font-family: 'Spartan', sans-serif;
+        font-weight: 300;
+    }
+
+    #header{
+        /*background-color: var(--primary);*/
+        background-image: linear-gradient(135deg, #989c9e 0, #78868d 25%, #546e7a 50%, #2f5668 75%, #004259 100%);
+        color: var(--light);
+    }
+
+    .far{
+        color:#78858b;
+    }
+
+    .fas{
+        color: #78858b;
+    }
+
+    .icono{
+        background-color: #E9ECEF;
+        border: 1px solid #ced4da;
+        width: 8%;
+    }
+
+    input:checked ~ .form-check-input {
+        background-color: #2196F3;
+      }
