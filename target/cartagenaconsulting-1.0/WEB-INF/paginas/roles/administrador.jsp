@@ -34,7 +34,7 @@
         
         <a href="${pageContext.request.contextPath}/CerrarSesion" class="btn btn-secondary">Cerrar Sesion</a>
         
-        <a href="${pageContext.request.contextPath}/registro.html" class="btn btn-secondary">Registro usuario</a>
+        <a href="${pageContext.request.contextPath}/ConReg" class="btn btn-secondary">Registro usuario</a>
 
 
 

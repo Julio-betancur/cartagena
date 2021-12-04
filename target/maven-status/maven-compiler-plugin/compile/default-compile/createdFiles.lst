@@ -1,3 +1,4 @@
+web\ControladorRegistro.class
 web\ControladorCerrarSesion.class
 dominio\Usuario.class
 web\ControladorLogin.class
