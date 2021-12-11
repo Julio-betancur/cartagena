@@ -6,7 +6,7 @@
     <div class="w-100 form-floating">
         <select class="form-select" id="municipio" name="municipio">
             <c:forEach var="municipio" items="${municipios}">
-                <option value="${municipio.nombreMunicipio}">${municipio.nombreMunicipio}</option>
+                <option value="${municipio.idMunicipio}">${municipio.nombreMunicipio}</option>
             </c:forEach>
         </select>
         <label for="municipio">Seleccione su municipio de residencia</label>

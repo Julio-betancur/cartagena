@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ControladorRegistro", urlPatterns = {"/Registro"})
+@WebServlet(name = "ControladorCargarRegistro", urlPatterns = {"/Registro"})
 public class ControladorCargarRegistro extends HttpServlet {
 
     private MunicipiosDAO municipiosDAO = new MunicipiosDAO();

@@ -34,9 +34,7 @@
         <h1>Registro</h1>
 
         <!-- Formulario -->
-        <jsp:include page="WEB-INF/paginas/formularios/registroForm.jsp" />
-
-         <a href="${pageContext.request.contextPath}/administrador.jsp" class="btn btn-secondary">Ir modulo administrador</a>
+        <jsp:include page="WEB-INF/paginas/formularios/registroForm.jsp" /> 
          
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

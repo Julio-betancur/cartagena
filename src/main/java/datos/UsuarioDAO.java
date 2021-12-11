@@ -6,12 +6,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UsuarioDAO {
 
     //Declaramos las consultas como constantes
-    private static final String SQL_INSERT = "INSERT INTO cliente(nombre,apellido,email,celular,saldo) "
-            + "VALUES(?,?,?,?,?) ";
     private static final String SQL_UPDATE = "UPDATE cliente SET nombre=?, apellido=?, email=?, celular=?,saldo=?"
             + "WHERE id_cliente=?";
     private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente=?";
@@ -21,7 +21,55 @@ public class UsuarioDAO {
     private static final String SQL_SELECT = "SELECT name, lastname1,lastname2, maritalStatus, "
             + "birthDate, TIMESTAMPDIFF(year,birthDate,CURDATE()) as edad,gender,idMunicipality,educationLevel,occupation,workArea,"
             + "company,phone,email,permission,status,registrationDate,terms FROM  user WHERE identification=?";
+    
+    private static final String SQL_INSERT = "INSERT INTO user(identification,password,name,lastname1,lastname2,maritalStatus,birthDate,"
+            + "gender,idMunicipality,educationLevel,occupation,workArea,company,phone,email,permission,status,registrationDate,terms) "
+            + "VALUES(?,AES_ENCRYPT(?,?),?,?,?,?,?,?,?,?,?,?,?,?,?,     ?,?,CURDATE(),?)";
 
+    //Metodo para insertar usuario
+    public int insertarUsuario(Usuario usuario){
+        Connection cn = null;
+        PreparedStatement ps = null;
+        int rows = 0;
+        //Se crea la contraseña con los ultimos 4 digitos de la cedula  
+        String pass = usuario.getNombre().substring(0,3) + usuario.getCedula().substring(0,4);
+        System.out.println(pass);
+        try {
+            cn = Conexion.getConnection();
+            ps = cn.prepareStatement(SQL_INSERT);
+            ps.setString(1, usuario.getCedula());
+            ps.setString(2, pass);
+            ps.setString(3, pass);
+            ps.setString(4, usuario.getNombre());
+            ps.setString(5, usuario.getApellido1());
+            ps.setString(6, usuario.getApellido2());
+            ps.setString(7, usuario.getEstadoCivil());
+            ps.setDate(8, usuario.getFechaNacimiento());
+            ps.setString(9, usuario.getGenero());
+            ps.setInt(10, usuario.getIdMunicipio());
+            ps.setString(11, usuario.getNivelEducativo());
+            ps.setString(12, usuario.getOcupacion());
+            ps.setString(13, usuario.getAreaInteres());
+            ps.setString(14, usuario.getEmpresa());
+            ps.setString(15, usuario.getCelular());
+            ps.setString(16, usuario.getEmail());
+            ps.setString(17, "Postulante");
+            ps.setInt(18, 1);
+            ps.setInt(19, 0);
+            rows = ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+            System.out.println("Error al registrar usuario - Registro");
+            System.out.println(ex);
+        }
+        finally{
+            Conexion.close(ps);
+            Conexion.close(cn);
+        }
+        
+        return rows;
+    }
+    
     public boolean validarLogin(Usuario usuario) {
         Connection cn = null;
         PreparedStatement ps = null;

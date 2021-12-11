@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<form class="was-validated row justify-content-center" action="${pageContext.request.contextPath}/ConLog"
+<form class="was-validated row justify-content-center" action="${pageContext.request.contextPath}/RegistrarUsuario"
               method="POST">
 
             <div class="col-lg-5 ">
@@ -11,7 +11,7 @@
                         <i class="far fa-address-card fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="number" class="form-control " id="cedula" placeholder="Cédula" required>
+                        <input type="number" class="form-control " id="cedula" name="cedula" placeholder="Cédula"  required>
                         <label for="cedula">Cédula</label>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                         <i class="far fa-user fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="text" class="form-control " id="nombre" placeholder="nombre" required>
+                        <input type="text" class="form-control " id="nombre" name="nombre" placeholder="nombre" minlength="3" required>
                         <label for="nombre">Nombre</label>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <i class="fas fa-signature fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="text" class="form-control " id="apellido1" placeholder="apellido1" required>
+                        <input type="text" class="form-control " id="apellido1" name="apellido1" placeholder="apellido1" required>
                         <label for="apellido1">Primer apellido</label>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         <i class="fas fa-signature fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="text" class="form-control " id="apellido2" placeholder="apellido2" required>
+                        <input type="text" class="form-control " id="apellido2" name="apellido2" placeholder="apellido2" required>
                         <label for="apellido2">Segundo apellido</label>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="w-100 form-floating">
-                        <select class="form-select" id="estadoCivil">
+                        <select class="form-select" id="estadoCivil" name="estadoCivil">
                             <option value="soltero">Solter(a)</option>
                             <option value="casado">Casado(a)</option>
                             <option value="viudo">Viudo(a)</option>
@@ -73,8 +73,8 @@
                         <i class="fas fa-calendar-day fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="date" class="form-control " id="fechanacimiento" placeholder="fechanacimiento" required>
-                        <label for="fechanacimiento">Seleccione su fecha de nacimiento</label>
+                        <input type="date" class="form-control " id="fechaNacimiento" name="fechaNacimiento" placeholder="fechanacimiento" required>
+                        <label for="fechaNacimiento">Seleccione su fecha de nacimiento</label>
                     </div>
                 </div>
 
@@ -85,19 +85,21 @@
                     </div>
                     <div class=" ms-3 form">
                         <div class="form-check">
-                            <input class="form-check-input " type="radio" name="generos" id="femenino" checked>
+                            <input class="form-check-input " type="radio"  name="generos" id="femenino" value="femenino" checked>
                             <label class="form-check-label" for="femenino">
                                 Femenino
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="generos" id="masculino" >
+                            <input class="form-check-input" type="radio" name="generos" id="masculino" value="masculino">
                             <label class="form-check-label" for="masculino">
                                 Masculino
                             </label>
                         </div>
                     </div>
                 </div>    
+
+                
 
             </div>
 
@@ -114,14 +116,14 @@
                         <i class="fas fa-user-graduate fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating">
-                        <select class="form-select" id="niveleducativo">
+                        <select class="form-select" id="nivelEducativo" name="nivelEducativo">
                             <option value="bachillerato">Bachillerato</option>
                             <option value="pregrado">Pregrado</option>
                             <option value="especializacion">Especialización</option>
                             <option value="maestria">Maestría</option>
                             <option value="doctorado">Doctorado</option>
                         </select>
-                        <label for="niveleducativo">Seleccione su nivel educativo</label>
+                        <label for="nivelEducativo">Seleccione su nivel educativo</label>
                     </div>
                 </div>
 
@@ -131,7 +133,7 @@
                         <i class="fas fa-user-md fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="text" class="form-control " id="ocupacion" placeholder="ocupacion" required>
+                        <input type="text" class="form-control " id="ocupacion" name="ocupacion" placeholder="ocupacion" required>
                         <label for="ocupacion">Ocupacion</label>
                     </div>
                 </div>
@@ -142,8 +144,8 @@
                         <i class="fas fa-briefcase fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="text" class="form-control " id="areatrabajo" placeholder="Area de trabajo" required>
-                        <label for="areatrabajo">Area de trabajo</label>
+                        <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" placeholder="Area de trabajo" required>
+                        <label for="areaTrabajo">Area de trabajo</label>
                     </div>
                 </div>
 
@@ -153,7 +155,7 @@
                         <i class="far fa-building fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="text" class="form-control " id="empresa" placeholder="Empresa" required>
+                        <input type="text" class="form-control " id="empresa" name="empresa" placeholder="Empresa" required>
                         <label for="empresa">Empresa</label>
                     </div>
                 </div>
@@ -164,7 +166,7 @@
                         <i class="fas fa-mobile-alt fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="number" class="form-control " id="celular" placeholder="Numero de celular" required>
+                        <input type="number" class="form-control " id="celular" name="celular" placeholder="Numero de celular" required>
                         <label for="celular">Numero de celular</label>
                     </div>
                 </div>
@@ -175,13 +177,20 @@
                         <i class="fas fa-at fa-lg"></i>
                     </div>
                     <div class="w-100 form-floating form">
-                        <input type="email" class="form-control " id="email" placeholder="Correo electronico" required>
+                        <input type="email" class="form-control " id="email" name="email" placeholder="Correo electronico" required>
                         <label for="email">Correo electronico</label>
                     </div>
                 </div>
 
 
             </div>
-
-
+                
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-5 ">
+                    <button type="submit" class="fw-bold btn btn-secondary btn-lg w-100 fw-bold">
+                        Registrarse
+                    </button>
+                </div>
+            </div>
+                
         </form>

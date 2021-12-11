@@ -32,10 +32,29 @@ public class Usuario {
         this.password = password;
     }
     
-    
-    public Usuario( String nombre, String apellido1, String apellido2, String estadoCivil, Date fechaNacimiento,int edad, String genero, int idMunicipio, String nivelEducativo, String ocupacion, String areaInteres, String empresa, String celular, String email, String permisos, boolean status, Date fechaRegistro, boolean terminos) {
+    //Constructor para insertar usuario
+
+    public Usuario(String cedula, String nombre, String apellido1, String apellido2, String estadoCivil, Date fechaNacimiento, int edad, String genero, int idMunicipio, String nivelEducativo, String ocupacion, String areaInteres, String empresa, String celular, String email) {
         this.cedula = cedula;
-        this.password = password;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.estadoCivil = estadoCivil;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.genero = genero;
+        this.idMunicipio = idMunicipio;
+        this.nivelEducativo = nivelEducativo;
+        this.ocupacion = ocupacion;
+        this.areaInteres = areaInteres;
+        this.empresa = empresa;
+        this.celular = celular;
+        this.email = email;
+    }
+    
+    
+    //Constructor para obtener info de usuario
+    public Usuario( String nombre, String apellido1, String apellido2, String estadoCivil, Date fechaNacimiento,int edad, String genero, int idMunicipio, String nivelEducativo, String ocupacion, String areaInteres, String empresa, String celular, String email, String permisos, boolean status, Date fechaRegistro, boolean terminos) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;

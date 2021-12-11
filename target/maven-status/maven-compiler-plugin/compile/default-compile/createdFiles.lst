@@ -4,7 +4,6 @@ dominio\Usuario.class
 web\ControladorLogin.class
 datos\UsuarioDAO.class
 datos\Conexion.class
-web\ControladorAdministrador.class
+web\ControladorCargarRegistro.class
 dominio\Municipio.class
-web\FiltroAdministrador.class
 datos\MunicipiosDAO.class
