@@ -6,10 +6,7 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-
-
-
-
+        
         <!-- Fonts Google -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +36,7 @@
         <!-- Formulario -->
         <jsp:include page="WEB-INF/paginas/formularios/registroForm.jsp" />
 
-         <a href="${pageContext.request.contextPath}/ConIngrAdmin" class="btn btn-secondary">Ir modulo administrador</a>
+         <a href="${pageContext.request.contextPath}/administrador.jsp" class="btn btn-secondary">Ir modulo administrador</a>
          
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

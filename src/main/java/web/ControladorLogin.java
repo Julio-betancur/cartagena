@@ -15,8 +15,9 @@ public class ControladorLogin extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        String validacion = request.getParameter("validacion");
-        if(validacion.equals("true")){
+        //Validacion si es una nueva sesion para obtener los datos desde el formulario login
+        String nuevaSesion = request.getParameter("nuevaSesion");
+        if(nuevaSesion.equals("true")){
             
            //1. Procesamos los parametros
         String cedula = request.getParameter("cedula");

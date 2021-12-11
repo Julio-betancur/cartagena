@@ -19,7 +19,7 @@
 
         <link rel="stylesheet" href="css/style.css" />
         <title>Panel de administracion</title>
-        <%
+        <%   
             
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas memoria cache
             response.setHeader("Pragm", "no-cache");
@@ -38,10 +38,10 @@
 
         <a href="${pageContext.request.contextPath}/CerrarSesion" class="btn btn-secondary">Cerrar Sesion</a>
 
-        <a href="${pageContext.request.contextPath}/ConReg" class="btn btn-secondary">Registro usuario</a>
-
-
-
+        <a href="${pageContext.request.contextPath}/Registro" class="btn btn-secondary">Registro usuario</a>
+     
+        
+        
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
