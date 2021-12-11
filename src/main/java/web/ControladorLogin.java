@@ -18,7 +18,7 @@ public class ControladorLogin extends HttpServlet {
         //1. Procesamos los parametros
         String cedula = request.getParameter("cedula");
         String password = request.getParameter("password");
-        
+    
         //2.Manejo logica presentacion
        
         Usuario usuario = new Usuario(cedula, password);
@@ -31,7 +31,7 @@ public class ControladorLogin extends HttpServlet {
             if (usuario.isStatus()) {
                 //Validamos el rol
                 if (usuario.getPermisos().equals("Administrador")) {
-                    request.getRequestDispatcher("/WEB-INF/paginas/roles/administrador.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath()+"/ConAdmin");
                 } else {
                     request.getRequestDispatcher("/WEB-INF/paginas/roles/postulante.jsp").forward(request, response);
                 }

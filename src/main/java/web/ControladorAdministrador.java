@@ -13,7 +13,14 @@ public class ControladorAdministrador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("pag");
+        if(request.getSession().getAttribute("usuario") != null){
+            request.getRequestDispatcher("/WEB-INF/paginas/roles/administrador.jsp").forward(request, response);
+            System.out.println("Usuario no es nulo va a administrador");
+        }
+        else{
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+            System.out.println("Usuario es nulo va a index");
+        }
         
         
     }

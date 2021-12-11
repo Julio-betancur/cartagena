@@ -26,7 +26,7 @@
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas memoria cache
             response.setHeader("Pragm", "no-cache");
             response.setDateHeader("Expires", 0); //fecha y hora para decir el tiempo de respuesta caduco
-%>
+        %>
     </head>
 
     <body>
@@ -62,7 +62,6 @@
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-        //Validamos si parametro alerta coincide con usuario incorrecto 
         <c:if test="${alerta.equals('userpassincorrect')}">
             <!-- Script mostrar alerta cedula o contra incorrecta -->
             <script src="js/loginScript.js"></script>

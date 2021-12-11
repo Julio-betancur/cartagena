@@ -6,4 +6,5 @@ datos\UsuarioDAO.class
 datos\Conexion.class
 web\ControladorAdministrador.class
 dominio\Municipio.class
+web\FiltroAdministrador.class
 datos\MunicipiosDAO.class

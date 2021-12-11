@@ -19,11 +19,13 @@
 
         <link rel="stylesheet" href="css/style.css" />
         <title>Panel de administracion</title>
-        <% 
-            if (request.getSession().getAttribute("usuario") == null) {
-                System.out.println("Usuario nulo en administrador");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            }%>
+        <%
+            
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas memoria cache
+            response.setHeader("Pragm", "no-cache");
+            response.setDateHeader("Expires", 0); //fecha y hora para decir el tiempo de respuesta caduco
+
+        %>
     </head>
 
     <body>
@@ -31,9 +33,9 @@
         <h2>Estatus: ${usuario.status}</h2>
         <h2>Edad: ${usuario.edad}</h2>
         <h2>Fecha de registro: ${usuario.fechaRegistro}</h2>
-        
+
         <a href="${pageContext.request.contextPath}/CerrarSesion" class="btn btn-secondary">Cerrar Sesion</a>
-        
+
         <a href="${pageContext.request.contextPath}/ConReg" class="btn btn-secondary">Registro usuario</a>
 
 
