@@ -15,10 +15,13 @@ public class ControladorLogin extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        //1. Procesamos los parametros
+        String validacion = request.getParameter("validacion");
+        if(validacion.equals("true")){
+            
+           //1. Procesamos los parametros
         String cedula = request.getParameter("cedula");
         String password = request.getParameter("password");
-    
+   
         //2.Manejo logica presentacion
        
         Usuario usuario = new Usuario(cedula, password);
@@ -31,7 +34,8 @@ public class ControladorLogin extends HttpServlet {
             if (usuario.isStatus()) {
                 //Validamos el rol
                 if (usuario.getPermisos().equals("Administrador")) {
-                    response.sendRedirect(request.getContextPath()+"/ConIngrAdmin");
+                    //request.getRequestDispatcher("/WEB-INF/paginas/roles/administrador.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath()+"/administrador.jsp");
                 } else {
                     request.getRequestDispatcher("/WEB-INF/paginas/roles/postulante.jsp").forward(request, response);
                 }
@@ -41,7 +45,9 @@ public class ControladorLogin extends HttpServlet {
         } else {
             request.setAttribute("alerta", "userpassincorrect");
             request.getRequestDispatcher("index.jsp").forward(request, response);
+        } 
         }
+        
 
     }
 

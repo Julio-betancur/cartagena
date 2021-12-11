@@ -24,7 +24,9 @@
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas memoria cache
             response.setHeader("Pragm", "no-cache");
             response.setDateHeader("Expires", 0); //fecha y hora para decir el tiempo de respuesta caduco
-
+            if(request.getSession().getAttribute("usuario") == null){
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         %>
     </head>
 

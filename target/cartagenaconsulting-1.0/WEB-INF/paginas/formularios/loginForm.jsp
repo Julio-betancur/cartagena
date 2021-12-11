@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form class="was-validated" action="${pageContext.request.contextPath}/ConLog" method="POST">
+<form class="was-validated" action="${pageContext.request.contextPath}/ConLog?validacion=true" method="POST">
     <div class="form-floating mb-4">
         <input type="number" id="cedula" class="form-control mb-2" name="cedula"
                placeholder="Ingrese su cedula" required />
