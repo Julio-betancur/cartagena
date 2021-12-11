@@ -31,7 +31,7 @@ public class ControladorLogin extends HttpServlet {
             if (usuario.isStatus()) {
                 //Validamos el rol
                 if (usuario.getPermisos().equals("Administrador")) {
-                    response.sendRedirect(request.getContextPath()+"/ConAdmin");
+                    response.sendRedirect(request.getContextPath()+"/ConIngrAdmin");
                 } else {
                     request.getRequestDispatcher("/WEB-INF/paginas/roles/postulante.jsp").forward(request, response);
                 }

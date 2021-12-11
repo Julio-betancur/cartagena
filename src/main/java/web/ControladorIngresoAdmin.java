@@ -8,11 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ControladorAdministrador", urlPatterns = {"/ConAdmin"})
-public class ControladorAdministrador extends HttpServlet {
+@WebServlet(name = "ControladorAdministrador", urlPatterns = {"/ConIngrAdmin"})
+public class ControladorIngresoAdmin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         if(request.getSession().getAttribute("usuario") != null){
             request.getRequestDispatcher("/WEB-INF/paginas/roles/administrador.jsp").forward(request, response);
             System.out.println("Usuario no es nulo va a administrador");
@@ -21,8 +22,6 @@ public class ControladorAdministrador extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
             System.out.println("Usuario es nulo va a index");
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
