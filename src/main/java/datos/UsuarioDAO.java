@@ -31,15 +31,13 @@ public class UsuarioDAO {
         Connection cn = null;
         PreparedStatement ps = null;
         int rows = 0;
-        //Se crea la contraseña con los ultimos 4 digitos de la cedula  
-        String pass = usuario.getNombre().substring(0,3) + usuario.getCedula().substring(0,4);
-        System.out.println(pass);
+        
         try {
             cn = Conexion.getConnection();
             ps = cn.prepareStatement(SQL_INSERT);
             ps.setString(1, usuario.getCedula());
-            ps.setString(2, pass);
-            ps.setString(3, pass);
+            ps.setString(2, usuario.getPassword());
+            ps.setString(3, usuario.getPassword());
             ps.setString(4, usuario.getNombre());
             ps.setString(5, usuario.getApellido1());
             ps.setString(6, usuario.getApellido2());

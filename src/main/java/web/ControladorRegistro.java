@@ -34,6 +34,9 @@ public class ControladorRegistro extends HttpServlet {
         //1. Procesamos los parametros
         String cedula = request.getParameter("cedula");
         String nombre = request.getParameter("nombre");
+        //Se crea la contraseña con los ultimos 4 digitos de la cedula  
+        String pass = nombre.substring(0,3) + cedula.substring(0,4);
+        System.out.println(pass);
         String apellido1 = request.getParameter("apellido1");
         String apellido2 = request.getParameter("apellido2");
         String estadoCivil = request.getParameter("estadoCivil");
@@ -53,9 +56,13 @@ public class ControladorRegistro extends HttpServlet {
         String email = request.getParameter("email");
         
         //2. Manejo logica de presentacion
-        Usuario usuario = new Usuario(cedula, nombre, apellido1, apellido2, estadoCivil, fechaNacimiento, idMunicipio, genero, idMunicipio, nivelEducativo, ocupacion, areaTrabajo, empresa, celular, email);
+        Usuario usuario = new Usuario(cedula,pass, nombre, apellido1, apellido2, estadoCivil, fechaNacimiento, idMunicipio, genero, idMunicipio, nivelEducativo, ocupacion, areaTrabajo, empresa, celular, email);
         if(usuarioDAO.insertarUsuario(usuario) > 0){
-            System.out.println("Usuario ingresado exitosamente");
+            request.setAttribute("alerta", "usuarioregistrado");
+            request.setAttribute("email", email);
+            request.setAttribute("cedula", cedula);
+            request.setAttribute("password",pass );
+            request.getRequestDispatcher("/Registro").forward(request, response);
         }
       
     }

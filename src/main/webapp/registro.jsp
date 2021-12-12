@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -43,6 +44,14 @@
 
         <!-- Iconos FontAwesome-->
         <script src="https://kit.fontawesome.com/7c71069563.js" crossorigin="anonymous"></script>
+        
+        <!-- Espacio Modal -->
+             <jsp:include page="/WEB-INF/paginas/comunes/alertas.jsp" />
+        
+        <c:if test="${alerta.equals('usuarioregistrado')}">
+            <!-- Script mostrar alerta usuario registrado -->
+            <script src="js/usuarioRegistradoScript.js"></script>
+        </c:if>
     </body>
 
 </html>

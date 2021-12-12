@@ -33,9 +33,9 @@ public class Usuario {
     }
     
     //Constructor para insertar usuario
-
-    public Usuario(String cedula, String nombre, String apellido1, String apellido2, String estadoCivil, Date fechaNacimiento, int edad, String genero, int idMunicipio, String nivelEducativo, String ocupacion, String areaInteres, String empresa, String celular, String email) {
+    public Usuario(String cedula,String password, String nombre, String apellido1, String apellido2, String estadoCivil, Date fechaNacimiento, int edad, String genero, int idMunicipio, String nivelEducativo, String ocupacion, String areaInteres, String empresa, String celular, String email) {
         this.cedula = cedula;
+        this.password = password;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
