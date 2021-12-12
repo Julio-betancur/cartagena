@@ -5,6 +5,7 @@
  */
 package web;
 
+import datos.SendEmail;
 import datos.UsuarioDAO;
 import dominio.Usuario;
 import java.io.IOException;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ControladorRegistro extends HttpServlet {
 
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
+    private SendEmail sendEmail = new SendEmail();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
@@ -59,10 +61,14 @@ public class ControladorRegistro extends HttpServlet {
         Usuario usuario = new Usuario(cedula,pass, nombre, apellido1, apellido2, estadoCivil, fechaNacimiento, idMunicipio, genero, idMunicipio, nivelEducativo, ocupacion, areaTrabajo, empresa, celular, email);
         if(usuarioDAO.insertarUsuario(usuario) > 0){
             request.setAttribute("alerta", "usuarioregistrado");
-            request.setAttribute("email", email);
+            request.setAttribute(email, pass);
+            request.setAttribute("email",usuario.getEmail());
             request.setAttribute("cedula", cedula);
             request.setAttribute("password",pass );
-            request.getRequestDispatcher("/Registro").forward(request, response);
+            if(sendEmail.sendEmail(usuario)){
+                request.getRequestDispatcher("/Registro").forward(request, response);
+            }
+            
         }
       
     }
