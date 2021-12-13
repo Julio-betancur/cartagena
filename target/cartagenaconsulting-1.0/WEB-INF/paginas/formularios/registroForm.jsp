@@ -11,7 +11,7 @@
                 <i class="far fa-address-card fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="number" class="form-control " id="cedula" name="cedula" placeholder="Cédula"  required>
+                <input type="text" class="form-control " id="cedula" name="cedula" placeholder="Cédula" minlength="3" maxlength="20" required>
                 <label for="cedula">Cédula</label>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <i class="far fa-user fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="text" class="form-control " id="nombre" name="nombre" placeholder="nombre" minlength="3" required>
+                <input type="text" class="form-control " id="nombre" name="nombre" placeholder="nombre" minlength="3" maxlength="20" required>
                 <label for="nombre">Nombre</label>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 <i class="fas fa-signature fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="text" class="form-control " id="apellido1" name="apellido1" placeholder="apellido1" required>
+                <input type="text" class="form-control " id="apellido1" name="apellido1" placeholder="apellido1" maxlength="20" required>
                 <label for="apellido1">Primer apellido</label>
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <i class="fas fa-signature fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="text" class="form-control " id="apellido2" name="apellido2" placeholder="apellido2" required>
+                <input type="text" class="form-control " id="apellido2" name="apellido2" placeholder="apellido2" maxlength="20" required>
                 <label for="apellido2">Segundo apellido</label>
             </div>
         </div>
@@ -133,7 +133,7 @@
                 <i class="fas fa-user-md fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="text" class="form-control " id="ocupacion" name="ocupacion" placeholder="ocupacion" required>
+                <input type="text" class="form-control " id="ocupacion" name="ocupacion" placeholder="ocupacion" maxlength="45" required>
                 <label for="ocupacion">Ocupacion</label>
             </div>
         </div>
@@ -144,7 +144,7 @@
                 <i class="fas fa-briefcase fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" placeholder="Area de trabajo" required>
+                <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" placeholder="Area de trabajo" maxlength="45" required>
                 <label for="areaTrabajo">Area de trabajo</label>
             </div>
         </div>
@@ -155,7 +155,7 @@
                 <i class="far fa-building fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="text" class="form-control " id="empresa" name="empresa" placeholder="Empresa" required>
+                <input type="text" class="form-control " id="empresa" name="empresa" placeholder="Empresa" maxlength="45" required>
                 <label for="empresa">Empresa</label>
             </div>
         </div>
@@ -166,7 +166,7 @@
                 <i class="fas fa-mobile-alt fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="number" class="form-control " id="celular" name="celular" placeholder="Numero de celular" required>
+                <input type="text" class="form-control " id="celular" name="celular" placeholder="Numero de celular" minlength="10" maxlength="15" required>
                 <label for="celular">Numero de celular</label>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 <i class="fas fa-at fa-lg"></i>
             </div>
             <div class="w-100 form-floating form">
-                <input type="email" class="form-control " id="email" name="email" placeholder="Correo electronico" required>
+                <input type="email" class="form-control " id="email" name="email" placeholder="Correo electronico"  maxlength="50" required>
                 <label for="email">Correo electronico</label>
             </div>
         </div>

@@ -31,6 +31,7 @@
     </head>
 
     <body>
+        <h1>Panel de Administrador</h1>>
         <h1>Bienvenido ${usuario.nombre}!</h1>
         <h2>Estatus: ${usuario.status}</h2>
         <h2>Edad: ${usuario.edad}</h2>

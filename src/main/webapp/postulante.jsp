@@ -18,7 +18,7 @@
         <script src="https://kit.fontawesome.com/cd641feaef.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="css/style.css" />
-        <title>Panel de administracion</title>
+        <title>Panel de postulante</title>
         <%   
             
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //Borrar directivas memoria cache
@@ -31,15 +31,13 @@
     </head>
 
     <body>
-        <h1>Panel de Administrador</h1>>
+        <h1>Panel de pruebas</h1>
         <h1>Bienvenido ${usuario.nombre}!</h1>
         <h2>Estatus: ${usuario.status}</h2>
         <h2>Edad: ${usuario.edad}</h2>
         <h2>Fecha de registro: ${usuario.fechaRegistro}</h2>
 
         <a href="${pageContext.request.contextPath}/CerrarSesion" class="btn btn-secondary">Cerrar Sesion</a>
-
-        <a href="${pageContext.request.contextPath}/Registro" class="btn btn-secondary">Registro usuario</a>
      
         
         

@@ -52,6 +52,9 @@
             <!-- Script mostrar alerta usuario registrado -->
             <script src="js/usuarioRegistradoScript.js"></script>
         </c:if>
+            
+            <!-- Validacion numeros-->
+            <script src="js/validacionNumeros.js"></script>
     </body>
 
 </html>
