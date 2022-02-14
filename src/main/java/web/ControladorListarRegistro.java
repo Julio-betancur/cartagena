@@ -1,9 +1,9 @@
 package web;
 
-
-
 import datos.MunicipiosDAO;
+import datos.UsuarioDAO;
 import dominio.Municipio;
+import dominio.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -12,22 +12,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ControladorCargarRegistro", urlPatterns = {"/Registro"})
-public class ControladorCargarRegistro extends HttpServlet {
-
-    private MunicipiosDAO municipiosDAO = new MunicipiosDAO();
+@WebServlet(name = "ControladorListarRegistro", urlPatterns = {"/Listar"})
+public class ControladorListarRegistro extends HttpServlet {
     
+    private MunicipiosDAO municipiosDAO = new MunicipiosDAO();
+    private Usuario usuario = new Usuario();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        //Procesamos los parametros
+
+         //Procesamos los parametros
         List<Municipio> municipios = municipiosDAO.listarMunicipios();
+        List<Usuario> usuarios = usuarioDAO.Listar();
         
         //Compartimos listado en el request
         request.setAttribute("municipios", municipios);
+        request.setAttribute("usuarios", usuarios);
         
-        request.getRequestDispatcher("registro.jsp").forward(request, response);
+        String resumen = request.getParameter("resumen");
+        if(resumen.equals("panel_administrador")){
+           request.getRequestDispatcher("panel_administrador.jsp").forward(request, response); 
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

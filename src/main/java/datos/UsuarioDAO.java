@@ -6,6 +6,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -147,5 +149,44 @@ public class UsuarioDAO {
         }
 
         return usuarioEncontrado;
+    }
+    
+    public List Listar() {
+        
+        Connection cn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String consulta = "SELECT * FROM user";
+        List<Usuario> lista = new ArrayList<Usuario>();
+        
+        try {
+            cn = Conexion.getConnection();
+            ps = cn.prepareStatement(consulta);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setCedula(rs.getString("identification"));
+                usuario.setNombre(rs.getString("name"));
+                usuario.setApellido1(rs.getString("lastname1"));
+                usuario.setApellido2(rs.getString("lastname2"));
+                usuario.setEstadoCivil(rs.getString("maritalStatus"));
+                usuario.setFechaNacimiento(rs.getDate("birthDate"));
+                usuario.setEdad(rs.getInt("edad"));
+                usuario.setGenero(rs.getString("gender"));
+                usuario.setIdMunicipio(rs.getInt("idMunicipality"));
+                usuario.setNivelEducativo(rs.getString("educationLevel"));
+                usuario.setOcupacion(rs.getString("occupation"));
+                usuario.setAreaInteres(rs.getString("workArea"));
+                usuario.setEmpresa(rs.getString("company"));
+                usuario.setCelular(rs.getString("phone"));
+                usuario.setEmail(rs.getString("email"));
+                
+                lista.add(usuario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 }

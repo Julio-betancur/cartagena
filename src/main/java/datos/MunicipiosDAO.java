@@ -21,8 +21,7 @@ public class MunicipiosDAO {
         List<Municipio> listaMunicipios = new ArrayList<Municipio>();
         try {
             cn = Conexion.getConnection();
-            ps = cn.prepareStatement(SQL_SELECT);
-            
+            ps = cn.prepareStatement(SQL_SELECT);  
             rs = ps.executeQuery();
             
             while (rs.next()) {

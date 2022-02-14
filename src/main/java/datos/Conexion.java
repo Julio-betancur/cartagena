@@ -10,7 +10,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class Conexion {
 
     private static final String DB = "cartagena";
-    private static final String JDBC_URL = "JDBC:mysql://localhost:33065/" + DB + "?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/" + DB + "?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
     private static final String PASS = "";
 
@@ -20,6 +20,7 @@ public class Conexion {
     public static DataSource getDataSource() {
         if (ds == null) {
             ds = new BasicDataSource();
+            ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
             ds.setUrl(JDBC_URL);
             ds.setUsername(USER);
             ds.setPassword(PASS);
@@ -58,6 +59,5 @@ public class Conexion {
             System.out.println("Error al cerrar el ResultSet");
         }
     }
-    
-   
+  
 }

@@ -38,7 +38,7 @@ public class ControladorLogin extends HttpServlet {
                     //request.getRequestDispatcher("/WEB-INF/paginas/roles/administrador.jsp").forward(request, response);
                     response.sendRedirect(request.getContextPath()+"/administrador.jsp");
                 } else {
-                    request.getRequestDispatcher("/WEB-INF/paginas/roles/postulante.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath()+"/postulante.jsp");
                 }
             } else {
                 //El usuario no esta activo
