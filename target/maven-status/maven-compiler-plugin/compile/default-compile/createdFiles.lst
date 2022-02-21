@@ -1,11 +1,14 @@
 web\ControladorRegistro.class
 web\ControladorCerrarSesion.class
-datos\SendEmail.class
 dominio\Usuario.class
 web\ControladorLogin.class
 datos\UsuarioDAO.class
 datos\SendEmail$1.class
+web\ControladorPostulante.class
+datos\MunicipiosDAO.class
+datos\SendEmail.class
 datos\Conexion.class
 web\ControladorCargarRegistro.class
+web\ControladorListarRegistro.class
+web\ControladorMenuAdmin.class
 dominio\Municipio.class
-datos\MunicipiosDAO.class
