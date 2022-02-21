@@ -1,0 +1,51 @@
+:root{
+  --primary: #546e7a;
+  --dark:#486370;
+  --light: #ffffff;
+  }
+
+body{
+  font-family: 'Spartan';
+  margin-top: 405px;
+  
+}
+/**container**/
+
+.container{
+  font-size: 10px;
+}
+/**Section: Social media**/
+
+.social a{
+  background-color: #fff;
+  border-radius: 70%;
+  text-align: center;
+}
+
+.social a i{
+  padding: 3px;
+  color: var(--dark);
+  transition: .4s;
+  font-size: 25px;
+  text-align: center;
+  
+}
+
+.social a i:hover{
+  color: rgba(173, 163, 72, 0.856);
+}
+
+/**Contacto**/
+
+.contacto{
+  line-height: 0.5pt;
+}
+.texto{
+  line-height: 20pt;
+  font-size: 10px;
+  letter-spacing: 1pt;
+}
+.copy{
+  font-size: 10px;
+  letter-spacing: 1pt;
+}
