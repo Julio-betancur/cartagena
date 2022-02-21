@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/administrador.jsp" style="color: #ffffff;">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="ControladorMenuAdmin?menu=administrador" style="color: #ffffff;">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="${pageContext.request.contextPath}/Registro" style="color: #ffffff;">Registro <span class="sr-only">(current)</span></a>
@@ -48,7 +48,7 @@
                             <a class="nav-link" href="ControladorPostulante?postulante=panel_postulante" style="color: #ffffff;">Postulante <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="ControladorListarRegistro?resumen=panel_administrador" target="miContenedor" style="color: #ffffff;">Resumen <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="ControladorListarRegistro?resumen=resumen_administrador&accion=Listar" target="miContenedor" style="color: #ffffff;">Resumen <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <div class="btn-group">

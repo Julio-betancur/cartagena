@@ -1,32 +1,33 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
       <div class="row">
-          <div class="col-md-4">
-              <div class="card">
-                  <img src="..." class="card-img-top" alt="...">
+          <div class="card col-md-4">                 
                   <div class="card-body">
                       <h5 class="card-title">Detalle Registro</h5>   
-                      
-                      <form action="${pageContext.request.contextPath}/RegistrarUsuario"" method="POST">
+                      <div>
+                      <form action="ControladorListarRegistro?resumen=panel_administrador" method="POST">
                        <div class="form-group">
-                           <input type="text" class="form-control " id="cedula" name="cedula" placeholder="Cédula" minlength="3" maxlength="20" required>
+                           <input type="text" class="form-control " id="cedula" name="cedula" value="${usuarioSeleccionado.getCedula()}" placeholder="Cédula" minlength="3" maxlength="20" required>
                            <label for="cedula">Cédula</label>
                            <small id="emailHelp" class="form-text text-muted"></small>
                        </div>
                        <div class="form-group">
-                           <input type="text" class="form-control " id="nombre" name="nombre" placeholder="nombre" minlength="3" maxlength="20" required>
+                           <input type="text" class="form-control " id="nombre" name="nombre" value="${usuarioSeleccionado.getNombre()}" placeholder="nombre" minlength="3" maxlength="20" required>
                            <label for="nombre">Nombre</label>
                        </div>
-                           <div class="form-group">
-                               <input type="text" class="form-control " id="apellido1" name="apellido1" placeholder="apellido1" maxlength="20" required>
+                       <div class="form-group">
+                               <input type="text" class="form-control " id="apellido1" name="apellido1" value="${usuarioSeleccionado.getApellido1()}" placeholder="apellido1" maxlength="20" required>
                                <label for="apellido1">Primer apellido</label>
                        </div>
                           <div class="form-group">
-                              <input type="text" class="form-control " id="apellido2" name="apellido2" placeholder="apellido2" maxlength="20" required>
+                              <input type="text" class="form-control " id="apellido2" name="apellido2" value="${usuarioSeleccionado.getApellido2()}" placeholder="apellido2" maxlength="20" required>
                               <label for="apellido2">Segundo apellido</label>
                        </div>
                           <div class="form-group">
-                              <select class="form-select" id="estadoCivil" name="estadoCivil">
+                              <select class="form-select" id="estadoCivil" name="estadoCivil" value="${usuarioSeleccionado.getEstadoCivil()}">
                                   <option value="soltero">Solter(a)</option>
                                   <option value="casado">Casado(a)</option>
                                   <option value="viudo">Viudo(a)</option>
@@ -36,17 +37,17 @@
                               <label for="estadoCivil">Seleccione su estado civil</label>
                        </div>
                           <div class="form-group">
-                              <input type="date" class="form-control " id="fechaNacimiento" name="fechaNacimiento" placeholder="fechanacimiento" required>
+                              <input type="date" class="form-control " id="fechaNacimiento" name="fechaNacimiento" value="${usuarioSeleccionado.getFechaNacimiento()}" placeholder="fechanacimiento" required>
                               <label for="fechaNacimiento">Seleccione su fecha de nacimiento</label>
                        </div>
                        <div class="form-group form-check">
-                           <input class="form-check-input " type="radio"  name="generos" id="femenino" value="femenino" checked>
+                           <input class="form-check-input " type="radio"  name="generos" id="femenino" value="${usuarioSeleccionado.getGenero()}" checked>
                            <label class="form-check-label" for="femenino">
                                Femenino
                            </label>
                        </div>
                           <div class="form-group form-check">
-                              <input class="form-check-input" type="radio" name="generos" id="masculino" value="masculino">
+                              <input class="form-check-input" type="radio" name="generos" id="masculino" value="${usuarioSeleccionado.getGenero()}">
                               <label class="form-check-label" for="masculino">
                                   Masculino
                               </label>
@@ -59,7 +60,7 @@
                        </div>
                               
                         <div class="form-group">
-                            <select class="form-select" id="nivelEducativo" name="nivelEducativo">
+                            <select class="form-select" id="nivelEducativo" name="nivelEducativo" value="${usuarioSeleccionado.getNivelEducativo()}">
                                 <option value="bachillerato">Bachillerato</option>
                                 <option value="pregrado">Pregrado</option>
                                 <option value="especializacion">Especialización</option>
@@ -69,31 +70,32 @@
                             <label for="nivelEducativo">Seleccione su nivel educativo</label>
                        </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control " id="ocupacion" name="ocupacion" placeholder="ocupacion" maxlength="45" required>
+                                  <input type="text" class="form-control " id="ocupacion" name="ocupacion" value="${usuarioSeleccionado.getOcupacion()}" placeholder="ocupacion" maxlength="45" required>
                                   <label for="ocupacion">Ocupacion</label>
                               </div>
                                <div class="form-group">
-                                   <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" placeholder="Area de trabajo" maxlength="45" required>
+                                   <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" value="${usuarioSeleccionado.getAreaInteres()}" placeholder="Area de trabajo" maxlength="45" required>
                                    <label for="areaTrabajo">Area de trabajo</label>
                               </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control " id="empresa" name="empresa" placeholder="Empresa" maxlength="45" required>
+                                  <input type="text" class="form-control " id="empresa" name="empresa" value="${usuarioSeleccionado.getEmpresa()}" placeholder="Empresa" maxlength="45" required>
                                   <label for="empresa">Empresa</label>
                               </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control " id="celular" name="celular" placeholder="Numero de celular" minlength="10" maxlength="15" required>
+                                  <input type="text" class="form-control " id="celular" name="celular" value="${usuarioSeleccionado.getCelular()}" placeholder="Numero de celular" minlength="10" maxlength="15" required>
                                   <label for="celular">Numero de celular</label>
                               </div>
                               <div class="form-group">
-                                  <input type="email" class="form-control " id="email" name="email" placeholder="Correo electronico"  maxlength="50" required>
+                                  <input type="email" class="form-control " id="email" name="email" value="${usuarioSeleccionado.getCelular()}" placeholder="Correo electronico"  maxlength="50" required>
                                   <label for="email">Correo electronico</label>
                               </div>
                               
-                       <button type="submit" class="btn btn-primary">Actualizar</button>
+                               <input type="submit" class="btn btn-primary" name="accion" value="Actualizar" >
                    </form>   
                   </div>
               </div>
           </div> 
+                               
           <div class="col-md-8">
               <table class="table">
                   <thead class="thead-dark">
@@ -103,7 +105,7 @@
                           <th scope="col">Primer Apellido</th>
                           <th scope="col">Segundo Apellido</th>
                           <th scope="col">Estado Civil</th>
-                          <th scope="col">Fecha de nacimiento</th>
+                          <th scope="col">Fecha Nacimiento</th>
                           <th scope="col">Genero</th>
                           <th scope="col">Municipio</th>
                           <th scope="col">Nivel Educativo</th>
@@ -112,6 +114,7 @@
                           <th scope="col">Empresa</th>
                           <th scope="col">Celular</th>
                           <th scope="col">Email</th>
+                          <th scope="col">Acciones</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -132,14 +135,13 @@
                                      <td>${usuario.getCelular()}</td>
                                      <td>${usuario.getEmail()}</td>
                                      <td>
-                                         <a class="btn btn-warning">Editar</a>
-                                         <a class="btn btn-danger">Eliminar</a>
+                                         <a class="btn btn-warning" href="ControladorListarRegistro?resumen=resumen_administrador&accion=Cargar&identification=${usuario.getCedula()}">Editar</a>
+                                         <a class="btn btn-danger" href="ControladorListarRegistro?resumen=resumen_administrador&accion=Eliminar&identification=${usuario.getCedula()}">Eliminar</a>
                                      </td>
                                  </tr>
                        </c:forEach>          
                   </tbody>
               </table>
-
           </div>
       </div>
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class MunicipiosDAO {
-    private final String SQL_SELECT = "SELECT * FROM municipality";
+    private final String SQL_SELECT = "SELECT * FROM tab_municipality";
     
     public List<Municipio> listarMunicipios(){
         Connection cn = null;
@@ -26,9 +26,9 @@ public class MunicipiosDAO {
             
             while (rs.next()) {
                 Municipio municipio = new Municipio();
-                municipio.setIdMunicipio(rs.getInt("id_municipio"));
-                municipio.setNombreMunicipio(rs.getString("nombre_municipio"));
-                municipio.setIdDepartamento(rs.getInt("id_departamento"));
+                municipio.setIdMunicipio(rs.getInt("ID_MUNICIPIO"));
+                municipio.setNombreMunicipio(rs.getString("NOMBRE_MUNICIPIO"));
+                municipio.setIdDepartamento(rs.getInt("ID_DEPARTAMENTO"));
                 
                 listaMunicipios.add(municipio);
             }
