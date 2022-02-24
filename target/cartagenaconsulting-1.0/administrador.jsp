@@ -71,17 +71,7 @@
                     
                     <div class="m-3" style="height: 900px;">
                         <iframe name="miContenedor" style="height: 100%; width: 100%;" frameBorder="1"></iframe>
-                    </div>            
-        
-        <h1>Bienvenido ${usuario.nombre}!</h1>
-        <h2>Estatus: ${usuario.status}</h2>
-        <h2>Edad: ${usuario.edad}</h2>
-        <h2>Fecha de registro: ${usuario.fechaRegistro}</h2>
-        
-        
-        <a href="${pageContext.request.contextPath}/Listar" class="btn btn-secondary">Panel Administrador</a>
-     
-        
+                    </div>                  
         
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

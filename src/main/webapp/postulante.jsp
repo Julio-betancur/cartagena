@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- Bootstrap CSS -->
-        <!--{<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
               crossorigin="anonymous" />
 
@@ -23,6 +23,19 @@
     </head>
 
     <body>
+        
+        <div class="row g-0 p-3 mb-3 shadow-sm" id="header">
+            <div class="col-lg-3 d-flex justify-content-center ">
+                <img class=" img-fluid" src="imagenes/Logo_1.png" alt="Logo cartagena">
+            </div>
+            <div class="col-lg-9  ">
+                <h1 class="text-center  mt-3">Cartagena Consulting Group</h1>
+                <p class="fs-4 text-center  ">Creando Conciencia Organizacional</p>
+            </div>
+        </div>
+
+
+        <h2>Pruebas</h2>
         
         <main>
 
@@ -97,6 +110,37 @@
         </div>
 
     </main>
+        
+        <!-- Footer -->
+            <footer class="text-white mt-3" style="background-color:#546e7a;">
+
+                <div class="container">
+
+                    <div class="container2">
+                        <!--Contacto-->
+                        <div class="contacto">
+                            <p><i class="email fas fa-envelope-open-text fa-2x" style="padding-right: 12px;"></i>claudiocartagena@cartagenacg.com.co</p>  
+                            <p><i class="cel fas fa-mobile fa-2x" style="padding-right: 20px;"></i>310 403 5424</p>            
+                        </div>
+
+                        <!-- Section: Social media -->
+
+                        <div class="social social1">            
+
+                            <a class="btn btn-primary btn-sm" style="background-color: #1c2d35" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm" style="background-color: #1c2d35" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="copyright" style="background-color:#486370">
+                    <h6>2015 Cartagena Consulting Group</h6>
+                    <h6>Todos los derechos reservados</h6>
+                </div>
+
+            </footer>
    
         <!-- Option 1: Bootstrap Bundle with Popper -->
        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
