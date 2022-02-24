@@ -11,34 +11,29 @@
                       <form action="ControladorListarRegistro?resumen=panel_administrador" method="POST">
                        <div class="form-group">
                            <input type="text" class="form-control " id="cedula" name="cedula" value="${usuarioSeleccionado.getCedula()}" placeholder="Cédula" minlength="3" maxlength="20" required>
-                           <label for="cedula">Cédula</label>
                            <small id="emailHelp" class="form-text text-muted"></small>
                        </div>
                        <div class="form-group">
-                           <input type="text" class="form-control " id="nombre" name="nombre" value="${usuarioSeleccionado.getNombre()}" placeholder="nombre" minlength="3" maxlength="20" required>
-                           <label for="nombre">Nombre</label>
+                           <input type="text" class="form-control " id="nombre" name="nombre" value="${usuarioSeleccionado.getNombre()}" placeholder="Nombres" minlength="3" maxlength="20" required>
                        </div>
                        <div class="form-group">
-                               <input type="text" class="form-control " id="apellido1" name="apellido1" value="${usuarioSeleccionado.getApellido1()}" placeholder="apellido1" maxlength="20" required>
-                               <label for="apellido1">Primer apellido</label>
+                               <input type="text" class="form-control " id="apellido1" name="apellido1" value="${usuarioSeleccionado.getApellido1()}" placeholder="Primer Apellido" maxlength="20" required>
                        </div>
                           <div class="form-group">
-                              <input type="text" class="form-control " id="apellido2" name="apellido2" value="${usuarioSeleccionado.getApellido2()}" placeholder="apellido2" maxlength="20" required>
-                              <label for="apellido2">Segundo apellido</label>
+                              <input type="text" class="form-control " id="apellido2" name="apellido2" value="${usuarioSeleccionado.getApellido2()}" placeholder="Segundo Apellido" maxlength="20" required>  
                        </div>
                           <div class="form-group">
                               <select class="form-select" id="estadoCivil" name="estadoCivil" value="${usuarioSeleccionado.getEstadoCivil()}">
+                                  <option>Seleccione su Estado Civil</option>
                                   <option value="soltero">Solter(a)</option>
                                   <option value="casado">Casado(a)</option>
                                   <option value="viudo">Viudo(a)</option>
                                   <option value="divorciado">Divorciado(a)</option>
                                   <option value="unionlibre">Unión libre</option>
                               </select>
-                              <label for="estadoCivil">Seleccione su estado civil</label>
                        </div>
                           <div class="form-group">
-                              <input type="date" class="form-control " id="fechaNacimiento" name="fechaNacimiento" value="${usuarioSeleccionado.getFechaNacimiento()}" placeholder="fechanacimiento" required>
-                              <label for="fechaNacimiento">Seleccione su fecha de nacimiento</label>
+                              <input type="date" class="form-control " id="fechaNacimiento" name="fechaNacimiento" value="${usuarioSeleccionado.getFechaNacimiento()}" placeholder="Fecha Nacimiento" required>
                        </div>
                        <div class="form-group form-check">
                            <input class="form-check-input " type="radio"  name="generos" id="femenino" value="${usuarioSeleccionado.getGenero()}" checked>
@@ -54,40 +49,33 @@
                        </div>
                        
                           <div class="form-group">
-                               <jsp:include page="municipioInput.jsp" />
-                             
-                              <label for="municipio">Seleccione su municipio de residencia</label>
+                               <jsp:include page="municipioInput.jsp"/>
                        </div>
                               
                         <div class="form-group">
                             <select class="form-select" id="nivelEducativo" name="nivelEducativo" value="${usuarioSeleccionado.getNivelEducativo()}">
+                                <option>Seleccione su nivel Educativo</option>
                                 <option value="bachillerato">Bachillerato</option>
                                 <option value="pregrado">Pregrado</option>
                                 <option value="especializacion">Especialización</option>
                                 <option value="maestria">Maestría</option>
                                 <option value="doctorado">Doctorado</option>
-                            </select>
-                            <label for="nivelEducativo">Seleccione su nivel educativo</label>
+                            </select> 
                        </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control " id="ocupacion" name="ocupacion" value="${usuarioSeleccionado.getOcupacion()}" placeholder="ocupacion" maxlength="45" required>
-                                  <label for="ocupacion">Ocupacion</label>
+                                  <input type="text" class="form-control " id="ocupacion" name="ocupacion" value="${usuarioSeleccionado.getOcupacion()}" placeholder="Ocupación" maxlength="45" required>      
                               </div>
                                <div class="form-group">
-                                   <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" value="${usuarioSeleccionado.getAreaInteres()}" placeholder="Area de trabajo" maxlength="45" required>
-                                   <label for="areaTrabajo">Area de trabajo</label>
+                                   <input type="text" class="form-control " id="areaTrabajo" name="areaTrabajo" value="${usuarioSeleccionado.getAreaInteres()}" placeholder="Area de Trabajo" maxlength="45" required>
                               </div>
                               <div class="form-group">
                                   <input type="text" class="form-control " id="empresa" name="empresa" value="${usuarioSeleccionado.getEmpresa()}" placeholder="Empresa" maxlength="45" required>
-                                  <label for="empresa">Empresa</label>
                               </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control " id="celular" name="celular" value="${usuarioSeleccionado.getCelular()}" placeholder="Numero de celular" minlength="10" maxlength="15" required>
-                                  <label for="celular">Numero de celular</label>
+                                  <input type="text" class="form-control " id="celular" name="celular" value="${usuarioSeleccionado.getCelular()}" placeholder="Numero de Celular" minlength="10" maxlength="15" required>
                               </div>
                               <div class="form-group">
-                                  <input type="email" class="form-control " id="email" name="email" value="${usuarioSeleccionado.getCelular()}" placeholder="Correo electronico"  maxlength="50" required>
-                                  <label for="email">Correo electronico</label>
+                                  <input type="email" class="form-control " id="email" name="email" value="${usuarioSeleccionado.getEmail()}" placeholder="Correo Electronico"  maxlength="50" required>
                               </div>
                               
                                <input type="submit" class="btn btn-primary" name="accion" value="Actualizar" >
