@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:33065
--- Tiempo de generación: 21-01-2022 a las 02:46:09
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-02-2022 a las 18:29:22
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,32 +24,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `answer`
+-- Estructura de tabla para la tabla `tab_answer`
 --
 
-CREATE TABLE `answer` (
-  `idRespuesta` int(11) NOT NULL,
-  `idPregunta` int(11) NOT NULL,
-  `respuesta` varchar(3) NOT NULL,
-  `cedulaUsuario` varchar(20) NOT NULL
+CREATE TABLE `tab_answer` (
+  `ID_RESPUESTA` int(11) NOT NULL,
+  `ID_PREGUNTA` int(11) NOT NULL,
+  `RESPUESTA` varchar(3) NOT NULL,
+  `IDENTIFICACION` varchar(20) NOT NULL,
+  `FECHA` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `department`
+-- Estructura de tabla para la tabla `tab_department`
 --
 
-CREATE TABLE `department` (
-  `id_departamento` int(11) NOT NULL,
-  `nombre_departamento` varchar(20) NOT NULL
+CREATE TABLE `tab_department` (
+  `ID_DEPARTAMENTO` int(11) NOT NULL,
+  `NOMBRE_DEPARTAMENTO` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `department`
+-- Volcado de datos para la tabla `tab_department`
 --
 
-INSERT INTO `department` (`id_departamento`, `nombre_departamento`) VALUES
+INSERT INTO `tab_department` (`ID_DEPARTAMENTO`, `NOMBRE_DEPARTAMENTO`) VALUES
 (5, 'Antioquia'),
 (8, 'Atlántico'),
 (11, 'Bogotá D.C.'),
@@ -86,20 +87,20 @@ INSERT INTO `department` (`id_departamento`, `nombre_departamento`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `municipality`
+-- Estructura de tabla para la tabla `tab_municipality`
 --
 
-CREATE TABLE `municipality` (
-  `id_municipio` int(11) NOT NULL,
-  `nombre_municipio` varchar(20) NOT NULL,
-  `id_departamento` int(11) DEFAULT NULL
+CREATE TABLE `tab_municipality` (
+  `ID_MUNICIPIO` int(11) NOT NULL,
+  `NOMBRE_MUNICIPIO` varchar(20) NOT NULL,
+  `ID_DEPARTAMENTO` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `municipality`
+-- Volcado de datos para la tabla `tab_municipality`
 --
 
-INSERT INTO `municipality` (`id_municipio`, `nombre_municipio`, `id_departamento`) VALUES
+INSERT INTO `tab_municipality` (`ID_MUNICIPIO`, `NOMBRE_MUNICIPIO`, `ID_DEPARTAMENTO`) VALUES
 (1, 'Medellín', 5),
 (2, 'Abejorral', 5),
 (3, 'Abriaquí', 5),
@@ -1221,84 +1222,84 @@ INSERT INTO `municipality` (`id_municipio`, `nombre_municipio`, `id_departamento
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `phase`
+-- Estructura de tabla para la tabla `tab_phase`
 --
 
-CREATE TABLE `phase` (
-  `idFase` int(11) NOT NULL,
-  `nombreFase` varchar(10) NOT NULL
+CREATE TABLE `tab_phase` (
+  `ID_FASE` int(11) NOT NULL,
+  `NOMBRE_FASE` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `question`
+-- Estructura de tabla para la tabla `tab_question`
 --
 
-CREATE TABLE `question` (
-  `idPregunta` int(11) NOT NULL,
-  `idPrueba` int(11) NOT NULL,
-  `numeroPregunta` int(11) NOT NULL
+CREATE TABLE `tab_question` (
+  `ID_PREGUNTA` int(11) NOT NULL,
+  `ID_PRUEBA` int(11) NOT NULL,
+  `NUMERO_PREGUNTA` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `test`
+-- Estructura de tabla para la tabla `tab_test`
 --
 
-CREATE TABLE `test` (
-  `idPrueba` int(11) NOT NULL,
-  `nombrePrueba` varchar(45) NOT NULL,
-  `idFase` int(11) DEFAULT NULL
+CREATE TABLE `tab_test` (
+  `ID_PRUEBA` int(11) NOT NULL,
+  `NOMBRE_PRUEBA` varchar(45) NOT NULL,
+  `ID_FASE` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `time`
+-- Estructura de tabla para la tabla `tab_time`
 --
 
-CREATE TABLE `time` (
-  `idTiempo` int(11) NOT NULL,
-  `idPrueba` int(11) NOT NULL,
-  `identification` varchar(20) NOT NULL,
-  `tiempo` time NOT NULL
+CREATE TABLE `tab_time` (
+  `ID_TIEMPO` int(11) NOT NULL,
+  `ID_PRUEBA` int(11) NOT NULL,
+  `IDENTIFICACION` varchar(20) NOT NULL,
+  `TIEMPO` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Estructura de tabla para la tabla `tab_user`
 --
 
-CREATE TABLE `user` (
-  `identification` varchar(20) NOT NULL,
-  `password` varbinary(50) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `lastname1` varchar(20) NOT NULL,
-  `lastname2` varchar(20) DEFAULT NULL,
-  `maritalStatus` varchar(10) NOT NULL,
-  `birthDate` date NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `idMunicipality` int(11) NOT NULL,
-  `educationLevel` varchar(20) NOT NULL,
-  `occupation` varchar(45) NOT NULL,
-  `workArea` varchar(45) NOT NULL,
-  `company` varchar(45) NOT NULL,
-  `phone` varchar(15) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `permission` varchar(20) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `registrationDate` date NOT NULL,
-  `terms` tinyint(1) DEFAULT NULL
+CREATE TABLE `tab_user` (
+  `IDENTIFICACION` varchar(20) NOT NULL,
+  `PASSWORD` varbinary(50) NOT NULL,
+  `NOMBRES` varchar(30) NOT NULL,
+  `PRIMER_APELLIDO` varchar(20) NOT NULL,
+  `SEGUNDO_APELLIDO` varchar(20) DEFAULT NULL,
+  `ESTADO_CIVIL` varchar(10) NOT NULL,
+  `FECHA_NACIMIENTO` date NOT NULL,
+  `GENERO` varchar(10) NOT NULL,
+  `ID_MUNICIPIO` int(11) NOT NULL,
+  `NIVEL_EDUCACION` varchar(20) NOT NULL,
+  `OCUPACION` varchar(45) NOT NULL,
+  `AREA_TRABAJO` varchar(45) NOT NULL,
+  `EMPRESA` varchar(45) NOT NULL,
+  `NUMERO_CELULAR` varchar(15) NOT NULL,
+  `CORREO_ELECTRONICO` varchar(30) NOT NULL,
+  `PERMISO_SISTEMA` varchar(20) NOT NULL,
+  `ESTADO` tinyint(1) NOT NULL,
+  `FECHA_REGISTRO` date NOT NULL,
+  `TERMINOS_CONDICIONES` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `user`
+-- Volcado de datos para la tabla `tab_user`
 --
 
-INSERT INTO `user` (`identification`, `password`, `name`, `lastname1`, `lastname2`, `maritalStatus`, `birthDate`, `gender`, `idMunicipality`, `educationLevel`, `occupation`, `workArea`, `company`, `phone`, `email`, `permission`, `status`, `registrationDate`, `terms`) VALUES
+INSERT INTO `tab_user` (`IDENTIFICACION`, `PASSWORD`, `NOMBRES`, `PRIMER_APELLIDO`, `SEGUNDO_APELLIDO`, `ESTADO_CIVIL`, `FECHA_NACIMIENTO`, `GENERO`, `ID_MUNICIPIO`, `NIVEL_EDUCACION`, `OCUPACION`, `AREA_TRABAJO`, `EMPRESA`, `NUMERO_CELULAR`, `CORREO_ELECTRONICO`, `PERMISO_SISTEMA`, `ESTADO`, `FECHA_REGISTRO`, `TERMINOS_CONDICIONES`) VALUES
 ('1037642684', 0x501defc4013f3f21529c123f33c065ad, 'Julio', 'Betancur', 'Salazar', 'soltero', '1995-06-06', 'Masculino', 1, 'Tecnologo', 'Estudiante', 'Tecnologia', 'SQA', '3148001676', 'juliobetancur2@gmail.com', 'Administrador', 1, '2021-11-27', 1),
 ('43616548', 0x2b6baef93b7aaef0438187461fb14b63, 'Lina', 'Rodriguez', 'Bedoya', 'soltero', '2000-05-12', 'femenino', 1, 'bachillerato', 'Estudiante', 'Filosofia', 'Universidad Haveriana', '3008953484', 'linarroma@gmail.com', 'Postulante', 1, '2021-12-15', 0);
 
@@ -1307,111 +1308,144 @@ INSERT INTO `user` (`identification`, `password`, `name`, `lastname1`, `lastname
 --
 
 --
--- Indices de la tabla `answer`
+-- Indices de la tabla `tab_answer`
 --
-ALTER TABLE `answer`
-  ADD PRIMARY KEY (`idRespuesta`),
-  ADD KEY `fk_respuestas_preguntas` (`idPregunta`),
-  ADD KEY `fk_respuestas_usuarios` (`cedulaUsuario`);
+ALTER TABLE `tab_answer`
+  ADD PRIMARY KEY (`ID_RESPUESTA`),
+  ADD KEY `ID_PREGUNTA` (`ID_PREGUNTA`),
+  ADD KEY `IDENTIFICACION` (`IDENTIFICACION`);
 
 --
--- Indices de la tabla `department`
+-- Indices de la tabla `tab_department`
 --
-ALTER TABLE `department`
-  ADD PRIMARY KEY (`id_departamento`);
+ALTER TABLE `tab_department`
+  ADD PRIMARY KEY (`ID_DEPARTAMENTO`);
 
 --
--- Indices de la tabla `municipality`
+-- Indices de la tabla `tab_municipality`
 --
-ALTER TABLE `municipality`
-  ADD PRIMARY KEY (`id_municipio`),
-  ADD KEY `id_departamento` (`id_departamento`);
+ALTER TABLE `tab_municipality`
+  ADD PRIMARY KEY (`ID_MUNICIPIO`),
+  ADD KEY `ID_DEPARTAMENTO` (`ID_DEPARTAMENTO`);
 
 --
--- Indices de la tabla `phase`
+-- Indices de la tabla `tab_phase`
 --
-ALTER TABLE `phase`
-  ADD PRIMARY KEY (`idFase`);
+ALTER TABLE `tab_phase`
+  ADD PRIMARY KEY (`ID_FASE`);
 
 --
--- Indices de la tabla `question`
+-- Indices de la tabla `tab_question`
 --
-ALTER TABLE `question`
-  ADD PRIMARY KEY (`idPregunta`);
+ALTER TABLE `tab_question`
+  ADD PRIMARY KEY (`ID_PREGUNTA`),
+  ADD KEY `ID_PRUEBA` (`ID_PRUEBA`);
 
 --
--- Indices de la tabla `test`
+-- Indices de la tabla `tab_test`
 --
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`idPrueba`);
+ALTER TABLE `tab_test`
+  ADD PRIMARY KEY (`ID_PRUEBA`),
+  ADD KEY `ID_FASE` (`ID_FASE`);
 
 --
--- Indices de la tabla `time`
+-- Indices de la tabla `tab_time`
 --
-ALTER TABLE `time`
-  ADD PRIMARY KEY (`idTiempo`);
+ALTER TABLE `tab_time`
+  ADD PRIMARY KEY (`ID_TIEMPO`),
+  ADD KEY `IDENTIFICACION` (`IDENTIFICACION`),
+  ADD KEY `ID_PRUEBA` (`ID_PRUEBA`);
 
 --
--- Indices de la tabla `user`
+-- Indices de la tabla `tab_user`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`identification`);
+ALTER TABLE `tab_user`
+  ADD PRIMARY KEY (`IDENTIFICACION`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `answer`
+-- AUTO_INCREMENT de la tabla `tab_answer`
 --
-ALTER TABLE `answer`
-  MODIFY `idRespuesta` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tab_answer`
+  MODIFY `ID_RESPUESTA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `department`
+-- AUTO_INCREMENT de la tabla `tab_department`
 --
-ALTER TABLE `department`
-  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+ALTER TABLE `tab_department`
+  MODIFY `ID_DEPARTAMENTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
--- AUTO_INCREMENT de la tabla `municipality`
+-- AUTO_INCREMENT de la tabla `tab_municipality`
 --
-ALTER TABLE `municipality`
-  MODIFY `id_municipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1118;
+ALTER TABLE `tab_municipality`
+  MODIFY `ID_MUNICIPIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1118;
 
 --
--- AUTO_INCREMENT de la tabla `phase`
+-- AUTO_INCREMENT de la tabla `tab_phase`
 --
-ALTER TABLE `phase`
-  MODIFY `idFase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tab_phase`
+  MODIFY `ID_FASE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `question`
+-- AUTO_INCREMENT de la tabla `tab_question`
 --
-ALTER TABLE `question`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `tab_question`
+  MODIFY `ID_PREGUNTA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `test`
+-- AUTO_INCREMENT de la tabla `tab_test`
 --
-ALTER TABLE `test`
-  MODIFY `idPrueba` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tab_test`
+  MODIFY `ID_PRUEBA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `time`
+-- AUTO_INCREMENT de la tabla `tab_time`
 --
-ALTER TABLE `time`
-  MODIFY `idTiempo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `tab_time`
+  MODIFY `ID_TIEMPO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `municipality`
+-- Filtros para la tabla `tab_answer`
 --
-ALTER TABLE `municipality`
-  ADD CONSTRAINT `municipality_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `department` (`id_departamento`);
+ALTER TABLE `tab_answer`
+  ADD CONSTRAINT `tab_answer_ibfk_1` FOREIGN KEY (`ID_PREGUNTA`) REFERENCES `tab_question` (`ID_PREGUNTA`),
+  ADD CONSTRAINT `tab_answer_ibfk_2` FOREIGN KEY (`IDENTIFICACION`) REFERENCES `tab_user` (`IDENTIFICACION`);
+
+--
+-- Filtros para la tabla `tab_municipality`
+--
+ALTER TABLE `tab_municipality`
+  ADD CONSTRAINT `FK_id_departamento` FOREIGN KEY (`ID_DEPARTAMENTO`) REFERENCES `tab_department` (`id_departamento`),
+  ADD CONSTRAINT `tab_municipality_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `tab_department` (`id_departamento`),
+  ADD CONSTRAINT `tab_municipality_ibfk_2` FOREIGN KEY (`ID_DEPARTAMENTO`) REFERENCES `tab_department` (`id_departamento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tab_municipality_ibfk_3` FOREIGN KEY (`ID_DEPARTAMENTO`) REFERENCES `tab_department` (`id_departamento`);
+
+--
+-- Filtros para la tabla `tab_question`
+--
+ALTER TABLE `tab_question`
+  ADD CONSTRAINT `tab_question_ibfk_1` FOREIGN KEY (`ID_PRUEBA`) REFERENCES `tab_test` (`ID_PRUEBA`);
+
+--
+-- Filtros para la tabla `tab_test`
+--
+ALTER TABLE `tab_test`
+  ADD CONSTRAINT `tab_test_ibfk_1` FOREIGN KEY (`ID_FASE`) REFERENCES `tab_phase` (`ID_FASE`);
+
+--
+-- Filtros para la tabla `tab_time`
+--
+ALTER TABLE `tab_time`
+  ADD CONSTRAINT `tab_time_ibfk_1` FOREIGN KEY (`IDENTIFICACION`) REFERENCES `tab_user` (`IDENTIFICACION`),
+  ADD CONSTRAINT `tab_time_ibfk_2` FOREIGN KEY (`ID_PRUEBA`) REFERENCES `tab_test` (`ID_PRUEBA`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

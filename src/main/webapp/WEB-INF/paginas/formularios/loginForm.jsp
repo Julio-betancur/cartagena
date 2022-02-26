@@ -15,10 +15,14 @@
         <div class="valid-feedback">Valido.</div>
         <div class="invalid-feedback">Por favor llene este campo.</div>
     </div>
-
-    <button type="submit" class="fw-bold btn btn-secondary btn-lg w-100 fw-bold">
-        Iniciar sesión
-    </button>
+    
+    <div class="justify-content-center mt-4" style="display: flex; justify-content: center; align-items: center">
+        <div>
+            <button type="submit" class="fw-bold btn btn-secondary btn-lg w-40 fw-bold">
+                Iniciar sesión
+            </button>
+        </div>
+    </div>
 
     <!-- Espacio Alerta -->
     <jsp:include page="/WEB-INF/paginas/comunes/alertas.jsp" />

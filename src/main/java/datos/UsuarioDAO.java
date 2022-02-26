@@ -19,21 +19,21 @@ public class UsuarioDAO {
             + "WHERE id_cliente=?";
     private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente=?";
 
-    private static final String SQL_VALIDATE = "SELECT AES_DECRYPT(PASSWORD,?) as PASSWORD FROM tab_user WHERE IDENTIFICACION=?";
+    private static final String SQL_VALIDATE = "SELECT AES_DECRYPT(password,?) as password FROM user WHERE identification=?";
 
-    private static final String SQL_SELECT = "SELECT NOMBRES,PRIMER_APELLIDO,SEGUNDO_APELLIDO,ESTADO_CIVIL, "
-            + "FECHA_NACIMIENTO, TIMESTAMPDIFF(year,birthDate,CURDATE()) as edad,GENERO,ID_MUNICIPIO,NIVEL_EDUCACION,OCUPACION,AREA_TRABAJO,"
-            + "EMPRESA,NUMERO_CELULAR,CORREO_ELECTRONICO,PERMISO_SISTEMA,ESTADO,FECHA_REGISTRO,TERMINOS_CONDICIONES FROM tab_user WHERE IDENTIFICACION=?";
+    private static final String SQL_SELECT = "SELECT name,lastname1,lastname2,maritalStatus, "
+            + "birthDate, TIMESTAMPDIFF(year,birthDate,CURDATE()) as edad,gender,idMunicipality,educationLevel,occupation,workArea,"
+            + "company,phone,email,permission,status,registrationDate,terms FROM user WHERE identification=?";
     
-    private static final String SQL_INSERT = "INSERT INTO tab_user(IDENTIFICACION,PASSWORD,NOMBRES,PRIMER_APELLIDO,SEGUNDO_APELLIDO,ESTADO_CIVIL,FECHA_NACIMIENTO,"
-            + "GENERO,ID_MUNICIPIO,NIVEL_EDUCACION,OCUPACION,AREA_TRABAJO,EMPRESA,NUMERO_CELULAR,CORREO_ELECTRONICO,PERMISO_SISTEMA,ESTADO,FECHA_REGISTRO,TERMINOS_CONDICIONES) "
+    private static final String SQL_INSERT = "INSERT INTO user(identification,password,name,lastname1,lastname2,maritalStatus,birthDate,"
+            + "gender,idMunicipality,educationLevel,occupation,workArea,company,phone,email,permission,status,registrationDate,terms) "
             + "VALUES(?,AES_ENCRYPT(?,?),?,?,?,?,?,?,?,?,?,?,?,?,?,     ?,?,CURDATE(),?)";
     
-    private static final String SQL_SELECT_USER = "SELECT * FROM tab_user";
+    private static final String SQL_SELECT_USER = "SELECT * FROM user";
     
-    private static final String SQL_UPDATE_USER = "UPDATE tab_user set IDENTIFICACION=? NOMBRES=?, PRIMER_APELLIDO=?,SEGUNDO_APELLIDO=?, ESTADO_CIVIL=?, "
-            + "FECHA_NACIMIENTO, TIMESTAMPDIFF(year,birthDate,CURDATE()) as edad=?,GENERO=?,ID_MUNICIPIO=?,NIVEL_EDUCACION=?,OCUPACION=?,AREA_TRABAJO=?,"
-            + "EMPRESA=?,NUMERO_CELULAR=?,CORREO_ELECTRONICO=? WHERE IDENTIFICACION=?";
+    private static final String SQL_UPDATE_USER = "UPDATE user set identification=? name=?, lastname1=?,lastname2=?, maritalStatus=?, "
+            + "birthDate, TIMESTAMPDIFF(year,birthDate,CURDATE()) as edad=?,gender=?,idMunicipality=?,educationLevel=?,occupation=?,workArea=?,"
+            + "company=?,phone?,email=? WHERE identification=?";
     
     
     //Metodo para insertar usuario
@@ -105,7 +105,7 @@ public class UsuarioDAO {
             System.out.println(ex);
 
         } finally {
-            Conexion.close(rs);
+            //Conexion.close(rs);
             Conexion.close(ps);
             Conexion.close(cn);
         }
@@ -125,24 +125,24 @@ public class UsuarioDAO {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                String nombre = rs.getString("NOMBRES");
-                String apellido1 = rs.getString("PRIMER_APELLIDO");
-                String apellido2 = rs.getString("SEGUNDO_APELLIDO");
-                String estadoCivil = rs.getString("ESTADO_CIVIL");
-                Date fechaNacimiento = rs.getDate("FECHA_NACIMIENTO");
+                String nombre = rs.getString("name");
+                String apellido1 = rs.getString("lastname1");
+                String apellido2 = rs.getString("lastname2");
+                String estadoCivil = rs.getString("maritalStatus");
+                Date fechaNacimiento = rs.getDate("birthDate");
                 int edad = rs.getInt("edad");
-                String genero = rs.getString("GENERO");
-                int idMunicipio = rs.getInt("ID_MUNICIPIO");
-                String nivelEducativo = rs.getString("NIVEL_EDUCACION");
-                String ocupacion = rs.getString("OCUPACION");
-                String areaTrabajo = rs.getString("AREA_TRABAJO");
-                String empresa = rs.getString("EMPRESA");
-                String celular = rs.getString("NUMERO_CELULAR");
-                String email = rs.getString("CORREO_ELECTRONICO");
-                String permisos = rs.getString("PERMISO_SISTEMA");
-                boolean estatus = rs.getBoolean("ESTADO");
-                Date fechaRegistro = rs.getDate("FECHA_REGISTRO");
-                boolean terminos = rs.getBoolean("TERMINOS_CONDICIONES");
+                String genero = rs.getString("gender");
+                int idMunicipio = rs.getInt("idMunicipality");
+                String nivelEducativo = rs.getString("educationLevel");
+                String ocupacion = rs.getString("occupation");
+                String areaTrabajo = rs.getString("workArea");
+                String empresa = rs.getString("company");
+                String celular = rs.getString("phone");
+                String email = rs.getString("email");
+                String permisos = rs.getString("permission");
+                boolean estatus = rs.getBoolean("status");
+                Date fechaRegistro = rs.getDate("registrationDate");
+                boolean terminos = rs.getBoolean("terms");
 
                 usuarioEncontrado = new Usuario(nombre, apellido1, apellido2, estadoCivil, fechaNacimiento, edad, genero, idMunicipio,
                         nivelEducativo, ocupacion, areaTrabajo, empresa, celular, email, permisos, estatus, fechaRegistro, terminos);
@@ -174,20 +174,20 @@ public class UsuarioDAO {
             
             while (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setCedula(rs.getString("IDENTIFICACION"));
-                usuario.setNombre(rs.getString("NOMBRES"));
-                usuario.setApellido1(rs.getString("PRIMER_APELLIDO"));
-                usuario.setApellido2(rs.getString("SEGUNDO_APELLIDO"));
-                usuario.setEstadoCivil(rs.getString("ESTADO_CIVIL"));
-                usuario.setFechaNacimiento(rs.getDate("FECHA_NACIMIENTO"));
-                usuario.setGenero(rs.getString("GENERO"));
-                usuario.setIdMunicipio(rs.getInt("ID_MUNICIPIO"));
-                usuario.setNivelEducativo(rs.getString("NIVEL_EDUCACION"));
-                usuario.setOcupacion(rs.getString("OCUPACION"));
-                usuario.setAreaInteres(rs.getString("AREA_TRABAJO"));
-                usuario.setEmpresa(rs.getString("EMPRESA"));
-                usuario.setCelular(rs.getString("NUMERO_CELULAR"));
-                usuario.setEmail(rs.getString("CORREO_ELECTRONICO")); 
+                usuario.setCedula(rs.getString("identification"));
+                usuario.setNombre(rs.getString("name"));
+                usuario.setApellido1(rs.getString("lastname1"));
+                usuario.setApellido2(rs.getString("lastname2"));
+                usuario.setEstadoCivil(rs.getString("maritalStatus"));
+                usuario.setFechaNacimiento(rs.getDate("birthDate"));
+                usuario.setGenero(rs.getString("gender"));
+                usuario.setIdMunicipio(rs.getInt("idMunicipality"));
+                usuario.setNivelEducativo(rs.getString("educationLevel"));
+                usuario.setOcupacion(rs.getString("occupation"));
+                usuario.setAreaInteres(rs.getString("workArea"));
+                usuario.setEmpresa(rs.getString("company"));
+                usuario.setCelular(rs.getString("phone"));
+                usuario.setEmail(rs.getString("email")); 
                 
                 listaUsuarios.add(usuario);
             }
@@ -198,9 +198,9 @@ public class UsuarioDAO {
         return listaUsuarios;
     }
     
-    public Usuario ListarPorDocumento(String IDENTIFICACION) {
+    public Usuario ListarPorDocumento(String identification) {
         
-        String SQL_SELECT_USERID = "SELECT * FROM user WHERE IDENTIFICACION=" + IDENTIFICACION;
+        String SQL_SELECT_USERID = "SELECT * FROM user WHERE identification=" + identification;
         Usuario usuario = new Usuario();
         
         Connection cn = null;

@@ -1,9 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<form class="was-validated row justify-content-center" action="${pageContext.request.contextPath}/RegistrarUsuario"
+<form class="was-validated row justify-content-center mt-5 mb-5" action="${pageContext.request.contextPath}/RegistrarUsuario"
       method="POST">
 
-    <div class="col-lg-5 ">
+    <div class="col-lg-5">
 
         <!--Cedula-->
         <div class="d-flex mb-3">
@@ -108,7 +108,7 @@
         <!-- Columna dos -->
 
         <!--municipio-->
-        <jsp:include page="municipioInput.jsp" />
+        <jsp:include page="municipioInput.jsp"/>
 
         <!--Nivel educativo-->
         <div class="d-flex mb-3">
@@ -181,16 +181,14 @@
                 <label for="email">Correo electronico</label>
             </div>
         </div>
-
-
     </div>
 
-    <div class="row justify-content-center mt-3">
-        <div class="col-lg-5 ">
-            <button type="submit" class="fw-bold btn btn-secondary btn-lg w-100 fw-bold">
-                Registrarse
-            </button>
+        <div class="justify-content-center mt-4" style="display: flex; justify-content: center; align-items: center">
+            <div>
+                <button type="submit" class="fw-bold btn btn-secondary btn-lg w-35 fw-bold">
+                    Registrarse
+                </button>
+            </div>
         </div>
-    </div>
 
 </form>

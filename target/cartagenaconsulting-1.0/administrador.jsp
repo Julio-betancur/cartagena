@@ -48,7 +48,7 @@
                             <a class="nav-link" href="ControladorPostulante?postulante=panel_postulante" style="color: #ffffff;">Postulante <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="ControladorListarRegistro?resumen=resumen_administrador&accion=Listar" target="miContenedor" style="color: #ffffff;">Resumen <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="ControladorListarRegistro?resumen=resumen_administrador&accion=Listar" target="miContenedor" style="color: #ffffff;">Gestión de Usuarios <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <div class="btn-group">
@@ -71,17 +71,7 @@
                     
                     <div class="m-3" style="height: 900px;">
                         <iframe name="miContenedor" style="height: 100%; width: 100%;" frameBorder="1"></iframe>
-                    </div>            
-        
-        <h1>Bienvenido ${usuario.nombre}!</h1>
-        <h2>Estatus: ${usuario.status}</h2>
-        <h2>Edad: ${usuario.edad}</h2>
-        <h2>Fecha de registro: ${usuario.fechaRegistro}</h2>
-        
-        
-        <a href="${pageContext.request.contextPath}/Listar" class="btn btn-secondary">Panel Administrador</a>
-     
-        
+                    </div>                  
         
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
