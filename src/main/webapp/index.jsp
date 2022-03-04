@@ -43,13 +43,13 @@
                         <img src="imagenes/Logo_1.png" alt="Logo cartagena" />
                     </div>
                     <div class="texto">
-                        <h1 class="text-center">Cartagena Consulting Group</h1>
-                        <p class="text-center fs-4">Creando Conciencia Organizacional</p>
+                        <h1 class="text-center" style="color: white;">Cartagena Consulting Group</h1>
+                        <p class="text-center fs-4" style="color: white;">Creando Conciencia Organizacional</p>
                     </div>
                 </div>
                 <div class="col-lg-5 d-flex rigth min-vh-100">
                     <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
-                        <h1 class="mb-4 text-center">Bienvenid@</h1>
+                        <h1 class="mb-4 text-center" style="color: white;">Bienvenid@</h1>
 
                         <!-- Espacio Formulario login -->
                         <jsp:include page="WEB-INF/paginas/formularios/loginForm.jsp" />
